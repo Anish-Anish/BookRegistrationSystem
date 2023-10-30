@@ -19,11 +19,9 @@ public class EditServlet extends HttpServlet {
     private static final String query = "update BOOKDATA set BOOKNAME=?,BOOKEDITION=?,BOOKPRICE=? where id=?";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        //get PrintWriter
+       
         PrintWriter pw = res.getWriter();
-        //set content type
         res.setContentType("text/html");
-        //get the id of record
         int id = Integer.parseInt(req.getParameter("id"));
         //get the edit data we want to edit
         String bookName = req.getParameter("bookName");
@@ -35,7 +33,7 @@ public class EditServlet extends HttpServlet {
         } catch (ClassNotFoundException cnf) {
             cnf.printStackTrace();
         }
-        //generate the connection
+    
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///book", "root", "ani28790'"); PreparedStatement ps = con.prepareStatement(query);) {
             ps.setString(1, bookName);
             ps.setString(2, bookEdition);
