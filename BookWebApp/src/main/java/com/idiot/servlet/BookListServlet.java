@@ -1,9 +1,6 @@
- package com.idiot.servlet;
+ 	package com.idiot.servlet;
 
-import javax.servlet.http.HttpServlet;
-
-
-
+	import javax.servlet.http.HttpServlet;
 	import java.io.IOException;
 	import java.io.PrintWriter;
 	import java.sql.Connection;
