@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServlet;
 	    private static final String query = "SELECT ID,BOOKNAME,BOOKEDITION,BOOKPRICE FROM BOOKDATA";
 	    @Override
 	    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-	        //get PrintWriter
+	        
 	        PrintWriter pw = res.getWriter();
 	        //set content type
 	        res.setContentType("text/html");
@@ -33,7 +33,8 @@ import javax.servlet.http.HttpServlet;
 	        } catch (ClassNotFoundException cnf) {
 	            cnf.printStackTrace();
 	        }
-	        //generate the connection
+
+		    
 	        try (Connection con = DriverManager.getConnection("jdbc:mysql:///book", "root", "ani28790'"); PreparedStatement ps = con.prepareStatement(query);) {
 	            ResultSet rs = ps.executeQuery();
 	            pw.println("<table border='1' align='center'>");
